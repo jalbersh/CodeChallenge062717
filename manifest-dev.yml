@@ -1,6 +1,6 @@
 applications:
-- name: SERVICE_GIT_PROJECT_NAME
-  path: build/libs/SERVICE_GIT_PROJECT_NAME.jar
+- name: CodeChallenge062717
+  path: build/libs/CodeChallenge062717.jar
   diego: true
   instances: 2
   memory: 3072M

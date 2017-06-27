@@ -1,6 +1,6 @@
 spring:
   application:
-    name: SERVICE_GIT_PROJECT_NAME
+    name: CodeChallenge062717
   sleuth:
     sampler:
       percentage: 1
@@ -15,7 +15,7 @@ spring:
 eureka:
   instance:
     instanceId: ${vcap.application.instance_id}:${vcap.application.uris[0]}:${spring.application.name}:${server.port}
-    hostname: apps-dev.global.dish.com/development/SERVICE_GIT_PROJECT_NAME
+    hostname: apps-dev.global.dish.com/development/CodeChallenge062717
 #    nonSecurePort: 80
     nonSecurePortEnabled: false
 #    securePort: 443

@@ -38,10 +38,10 @@ mv APPLICATION_NAMETest.java __codeChallenge062717__Test.java
 IN ENTIRE PROJECT:
 ------------------
 
-1. Replace all SERVICE_GIT_PROJECT_NAME with __CodeChallenge062717__
-  1.  Replace all PROJECT_TITLE with __CodeChallenge062717__
-1.  Replace all PORT_NUMBER with your port number
-  1. Determine the PORT_NUMBER by from [here](https://www.pivotaltracker.com/projects/1434608/stories/115506469)
+1. Replace all CodeChallenge062717 with __CodeChallenge062717__
+  1.  Replace all CodeChallenge062717 with __CodeChallenge062717__
+1.  Replace all 8888 with your port number
+  1. Determine the 8888 by from [here](https://www.pivotaltracker.com/projects/1434608/stories/115506469)
   1. Add service name and port to the tracker documentation story above
 1.  Replace all REST_ENDPOINT with your REST endpoint suffix (i.e. lookup-commitment)
   1.  Replace all REST_ENDPOINT_CAMEL_CASE with your camel-case REST endpoint (i.e. lookupCommitment)
@@ -61,8 +61,8 @@ IN ENTIRE PROJECT:
 SAMPLE README below:
 ===============================
 
-# PROJECT_TITLE API
-The PROJECT_TITLE API is a RESTful service for interacting with <SERVICE INFO HERE>.
+# CodeChallenge062717 API
+The CodeChallenge062717 API is a RESTful service for interacting with <SERVICE INFO HERE>.
 
 ## Project Requirements
 - JDK 1.8.0-31 or higher
@@ -75,7 +75,7 @@ cert to your local machine.
   1. Create file called `dish.cer` with the contents of the certificate on the [wiki](https://it-wiki.global.dish.com/index.php/Dish_Root_Cert).
   1. Run `sudo ../../bin/keytool --importcert -v -trustcacerts -file dish.cer -keystore cacerts`
   1. When prompted for a password, enter "changeit"
-1. clone `https://gitlab.global.dish.com/service-layer/SERVICE_GIT_PROJECT_NAME.git`
+1. clone `https://gitlab.global.dish.com/service-layer/CodeChallenge062717.git`
 1. if git alias is setup on your terminal then run `gupdate`, otherwise run `git pull -r & git submodule update --init --recursive --remote`
 1. run `gradle clean build`
 
@@ -101,8 +101,8 @@ cert to your local machine.
 
 To run the app in debug mode :
 
-1. `cd ~/workspace/SERVICE_GIT_PROJECT_NAME`
-1. `gradle clean assemble && SERVER_PORT=PORT_NUMBER java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 -jar build/libs/SERVICE_GIT_PROJECT_NAME.jar` 
+1. `cd ~/workspace/CodeChallenge062717`
+1. `gradle clean assemble && SERVER_PORT=8888 java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 -jar build/libs/CodeChallenge062717.jar` 
 
 The app listens on port 5005
 Create a new Remote Configuration in IntelliJ:
@@ -114,15 +114,15 @@ Create a new Remote Configuration in IntelliJ:
 1. Select the remote configuration
 
 ## Api Docs
-Once the application is up and running you can see the [Swagger API Docs](http://localhost:PORT_NUMBER/swagger-ui.html) in your browser.
+Once the application is up and running you can see the [Swagger API Docs](http://localhost:8888/swagger-ui.html) in your browser.
 
-#### 1. PROJECT_TITLE
+#### 1. CodeChallenge062717
 ##### Sample Request
 
 ```
-GET http://host:PORT_NUMBER/REST_ENDPOINT
+GET http://host:8888/REST_ENDPOINT
 
-i.e GET http://localhost:PORT_NUMBER/REST_ENDPOINT
+i.e GET http://localhost:8888/REST_ENDPOINT
   
 ```
 

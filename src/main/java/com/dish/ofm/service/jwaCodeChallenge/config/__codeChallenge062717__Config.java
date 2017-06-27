@@ -1,4 +1,4 @@
-package com.dish.ofm.service.PACKAGE_NAME.config;
+package com.dish.ofm.service.jwaCodeChallenge.config;
 
 import com.dish.core.metrics.health.RestServiceHealthStatusIndicator;
 import com.dish.ofm.commonutils.MetricsLoggingHandler;
@@ -13,7 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Configuration
-public class APPLICATION_NAMEConfig {
+public class codeChallenge062717__Config {
 
     @Autowired
     @Value("${spring.application.name}")

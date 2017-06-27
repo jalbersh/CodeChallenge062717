@@ -26,8 +26,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("PROJECT_TITLE")
-            .description("PROJECT_TITLE Dish Offer Management")
+            .title("CodeChallenge062717")
+            .description("CodeChallenge062717 Dish Offer Management")
             .termsOfServiceUrl("http://terms of service")
             .contact(new Contact("Service Adapters", "", "OFMServiceAdapterTeam@dish.com"))
             .license("Dish Internal Use Only")

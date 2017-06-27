@@ -8,11 +8,11 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class APPLICATION_NAMEApplication {
-    private static Logger LOGGER = LoggerFactory.getLogger(APPLICATION_NAMEApplication.class);
+public class codeChallenge062717__Application {
+    private static Logger LOGGER = LoggerFactory.getLogger(codeChallenge062717__Application.class);
 
     public static void main(String args[]) {
-        SpringApplication.run(APPLICATION_NAMEApplication.class, args);
-        LOGGER.info("Finished APPLICATION_NAMEApplication initialization...");
+        SpringApplication.run(codeChallenge062717__Application.class, args);
+        LOGGER.info("Finished codeChallenge062717__Application initialization...");
     }
 }

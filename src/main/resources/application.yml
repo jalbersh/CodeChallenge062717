@@ -16,12 +16,12 @@ endpoints:
 
 # Spring Boot port
 server:
-    port: PORT_NUMBER
+    port: 8888
 
 ---
 spring:
   application:
-    name: SERVICE_GIT_PROJECT_NAME
+    name: CodeChallenge062717
   sleuth:
     sampler:
       percentage: 1
@@ -37,12 +37,12 @@ spring:
 
 # CF Application info
 application:
-  name: SERVICE_GIT_PROJECT_NAME
+  name: CodeChallenge062717
   instance: 1
 eureka:
   instance:
-    instanceId: SERVICE_GIT_PROJECT_NAME-local
-    hostname: localhost:PORT_NUMBER
+    instanceId: CodeChallenge062717-local
+    hostname: localhost:8888
 #    nonSecurePort: 80
     nonSecurePortEnabled: false
 #    securePort: 443
