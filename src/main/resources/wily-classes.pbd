@@ -1,0 +1,10 @@
+SetFlag: CustomOFMClasses
+TurnOn: CustomOFMClasses
+
+IdentifyMatchingClassesAs: "com.dish.ofm.*" CustomOFMClasses
+IdentifyMatchingClassesAs: "org.springframework.jdbc.*"  CustomOFMClasses
+
+TraceAllComplexMethodsIfFlagged: CustomOFMClasses BlamePointTracer "OFMClasses|{packagename}|{classname}|{method}"
+TraceAllComplexMethodsIfFlagged: CustomOFMClasses BlamePointTracer "OFMClasses|{packagename}|{classname}"
+TraceAllComplexMethodsIfFlagged: CustomOFMClasses BlamePointTracer "OFMClasses|{packagename}"
+TraceAllComplexMethodsIfFlagged: CustomOFMClasses BlamePointTracer "OFMClasses"

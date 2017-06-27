@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: SERVICE_GIT_PROJECT_NAME
+  sleuth:
+    sampler:
+      percentage: 1
+    keys:
+      http:
+        headers: "X-Trace-Id,X-Span-Id,X-Context-Session-Id,X-Context-Request-Id,X-Context-Trace-Id,X-Context-Account-Id,X-Context-Customer-Id,X-Context-Order-Id,X-Context-Agent-Id"
+    enabled: true
+    log:
+      json:
+        enabled: true
+
+eureka:
+  instance:
+    instanceId: ${vcap.application.instance_id}:${vcap.application.uris[0]}:${spring.application.name}:${server.port}
+    hostname: apps-dev.global.dish.com/development/SERVICE_GIT_PROJECT_NAME
+#    nonSecurePort: 80
+    nonSecurePortEnabled: false
+#    securePort: 443
+    securePortEnabled: false
+    homePageUrl: http://${eureka.instance.hostname}/
+    statusPageUrl: https://${eureka.instance.hostname}/metrics
+    healthCheckUrl: https://${eureka.instance.hostname}/health
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: https://${vcap.services.eureka.credentials.username}:${vcap.services.eureka.credentials.password}@${vcap.services.eureka.credentials.uri}/eureka/
+
+
+configuredEnvironment: development

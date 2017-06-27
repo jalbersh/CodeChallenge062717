@@ -1,0 +1,78 @@
+import org.gradle.logging.StyledTextOutputFactory
+
+import static org.gradle.logging.StyledTextOutput.Style
+
+//colored output borrowed from https://github.com/biasedbit/gradle-plugins/blob/master/colored-test-output.gradle
+System.setProperty('org.gradle.color.failure', 'RED')
+System.setProperty('org.gradle.color.progressstatus', 'YELLOW')
+System.setProperty('org.gradle.color.success', 'GREEN')
+
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    maven {
+        url 'https://artifactory.global.dish.com/artifactory/repo'
+    }
+}
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://artifactory.global.dish.com/artifactory/repo'
+        }
+    }
+}
+
+ext {
+    junitVersion = '4.12'
+    slf4jVersion = '1.7.11'
+}
+
+dependencies {
+    testCompile(
+            project(':common-utils'),
+
+            "org.slf4j:slf4j-api:$slf4jVersion",
+            "junit:junit:$junitVersion",
+            'com.jayway.restassured:json-schema-validator:2.5.0',
+    )
+}
+
+test {
+    testLogging {
+        exceptionFormat = 'full'
+    }
+
+    def out = services.get(StyledTextOutputFactory).create('colored-test-output')
+    out.style(Style.Normal)
+
+    beforeSuite { suite ->
+        if (suite.name.startsWith('Test Run') || suite.name.startsWith('Gradle Worker')) return
+        out.println("\n" + suite.name)
+    }
+    afterTest { descriptor, result ->
+        def style
+        if (result.failedTestCount > 0) style = Style.Failure
+        else if (result.skippedTestCount > 0) style = Style.ProgressStatus
+        else style = Style.Success
+
+        out.text('  ').withStyle(style).println(descriptor.name)
+    }
+}
+
+task cloneSchema(type: Exec) {
+    outputs.dir 'src/test/resources/schemas'
+    ignoreExitValue true
+    standardOutput = new ByteArrayOutputStream()
+    errorOutput = new ByteArrayOutputStream()
+    commandLine 'git', 'clone', 'https://gitlab.global.dish.com/contracts/contracts.git', 'src/test/resources/schemas'
+}
+
+task pullSchema(type: Exec, dependsOn: cloneSchema) {
+    standardOutput = new ByteArrayOutputStream()
+    commandLine 'git', '-C', 'src/test/resources/schemas', 'pull'
+}
+
+test.dependsOn pullSchema

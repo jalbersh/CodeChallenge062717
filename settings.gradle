@@ -1,0 +1,3 @@
+rootProject.name = 'SERVICE_GIT_PROJECT_NAME'
+
+include 'common-utils'

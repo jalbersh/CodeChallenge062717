@@ -1,0 +1,13 @@
+applications:
+- name: SERVICE_GIT_PROJECT_NAME
+  path: build/libs/SERVICE_GIT_PROJECT_NAME.jar
+  diego: true
+  instances: 2
+  memory: 3072M
+  services:
+  - eureka
+  - introscope
+  env:
+    SPRING_PROFILES_ACTIVE: production,canary
+    SPRING_CLOUD_CONFIG_URI: "http://configserver.global.dish.com:8888"
+    JAVA_OPTS: '-Dintroscope.autoprobe.directivesFile=tomcat-full.pbl,hotdeploy,spm.pbl,/home/vcap/app/wily-classes.pbd'
